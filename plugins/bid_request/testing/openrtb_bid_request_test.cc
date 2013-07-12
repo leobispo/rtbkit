@@ -20,21 +20,25 @@ using namespace ML;
 using namespace Datacratic;
 using namespace RTBKIT;
 
+#ifndef BASE_DIR
+#define BASE_DIR "./rtbkit"
+#endif
+
 vector<string> samples = {
-    "rtbkit/plugins/bid_request/testing/openrtb1_req.json",
-    "rtbkit/plugins/bid_request/testing/openrtb2_req.json",
-    "rtbkit/plugins/bid_request/testing/openrtb_banner.json",
-    "rtbkit/plugins/bid_request/testing/openrtb_expandable_creative.json",
-    "rtbkit/plugins/bid_request/testing/openrtb_mobile.json",
-    "rtbkit/plugins/bid_request/testing/openrtb_video.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_banner1.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_banner2.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_banner3.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_banner4.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_desktop.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_mobile_app.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_mobile_web.json",
-    "rtbkit/plugins/bid_request/testing/rubicon_test1.json"
+    BASE_DIR "/plugins/bid_request/testing/openrtb1_req.json",
+    BASE_DIR "/plugins/bid_request/testing/openrtb2_req.json",
+    BASE_DIR "/plugins/bid_request/testing/openrtb_banner.json",
+    BASE_DIR "/plugins/bid_request/testing/openrtb_expandable_creative.json",
+    BASE_DIR "/plugins/bid_request/testing/openrtb_mobile.json",
+    BASE_DIR "/plugins/bid_request/testing/openrtb_video.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_banner1.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_banner2.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_banner3.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_banner4.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_desktop.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_mobile_app.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_mobile_web.json",
+    BASE_DIR "/plugins/bid_request/testing/rubicon_test1.json"
 };
 
 std::string loadFile(const std::string & filename)

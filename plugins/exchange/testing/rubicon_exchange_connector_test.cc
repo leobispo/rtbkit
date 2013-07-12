@@ -28,6 +28,9 @@
 
 #include <type_traits>
 
+#ifndef BASE_DIR
+#define BASE_DIR "."
+#endif
 // This is needed to allow a std::function to bind into the sigc library
 // See: http://web.archiveorange.com/archive/v/QVfaOb8fEnu9f52fo4y2
 namespace sigc
@@ -289,7 +292,7 @@ BOOST_AUTO_TEST_CASE( test_rubicon )
     agent.start();
     agent.configure();
 
-    std::string filename = "rtbkit/plugins/exchange/testing/rubicon-samples.txt.gz";
+    std::string filename = BASE_DIR "/rtbkit/plugins/exchange/testing/rubicon-samples.txt.gz";
 
     // either delete the file or set this to true to generate a new file
     bool generate = false;
