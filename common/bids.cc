@@ -87,7 +87,7 @@ bid(int creativeIndex, Amount price, double priority)
             availableCreatives.end(),
             creativeIndex);
     ExcCheck(it != availableCreatives.end(),
-            "Creative index is not available for bidding: " + creativeIndex);
+            "Creative index is not available for bidding: " + std::to_string(creativeIndex));
 
     this->creativeIndex = creativeIndex;
     this->price = price;
@@ -188,7 +188,7 @@ bidForSpot(int spotIndex) const
         if (bid.spotIndex == spotIndex) return bid;
     }
 
-    ExcCheck(false, "Unknown spot index: " + spotIndex);
+    ExcCheck(false, "Unknown spot index: " + std::to_string(spotIndex));
 }
 
 

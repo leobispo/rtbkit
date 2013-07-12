@@ -362,7 +362,7 @@ BiddingAgent::
 handleBidRequest(const std::string & fromRouter,
                  const std::vector<std::string>& msg, BidRequestCbFn& callback)
 {
-    ExcCheck(!requiresAllCB || callback, "Null callback for " + msg[0]);
+    ExcCheck(!requiresAllCB || callback, "Null callback for " + std::to_string(msg[0]));
     if (!callback) return;
 
     checkMessageSize(msg, 9);
@@ -410,7 +410,7 @@ void
 BiddingAgent::
 handleResult(const std::vector<std::string>& msg, ResultCbFn& callback)
 {
-    ExcCheck(!requiresAllCB || callback, "Null callback for " + msg[0]);
+    ExcCheck(!requiresAllCB || callback, "Null callback for " + std::to_string(msg[0]));
     if (!callback) return;
 
     checkMessageSize(msg, 6);
@@ -435,7 +435,7 @@ void
 BiddingAgent::
 handleError(const std::vector<std::string>& msg, ErrorCbFn& callback)
 {
-    ExcCheck(!requiresAllCB || callback, "Null callback for " + msg[0]);
+    ExcCheck(!requiresAllCB || callback, "Null callback for " + std::to_string(msg[0]));
     if (!callback) return;
 
     double timestamp = boost::lexical_cast<double>(msg[1]);
@@ -452,7 +452,7 @@ void
 BiddingAgent::
 handleDelivery(const std::vector<std::string>& msg, DeliveryCbFn& callback)
 {
-    ExcCheck(!requiresAllCB || callback, "Null callback for " + msg[0]);
+    ExcCheck(!requiresAllCB || callback, "Null callback for " + std::to_string(msg[0]));
     if (!callback) return;
 
     checkMessageSize(msg, 12);
