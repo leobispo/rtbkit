@@ -139,7 +139,7 @@ struct SegmentListJS
 
                 // Argument 1: value
                 // Argument 2: index number
-                int argc = 2;
+                const static int argc = 2;
                 v8::Handle<v8::Value> argv[argc];
             
                 argv[0] = value;
