@@ -5,6 +5,12 @@
    A utility that feeds a stream of JSON samples to an HTTP server.
  */
 
+#undef PACKAGE
+#undef PACKAGE_NAME
+#undef PACKAGE_STRING
+#undef PACKAGE_TARNAME
+#undef PACKAGE_VERSION
+#undef VERSION
 
 #include <string>
 
