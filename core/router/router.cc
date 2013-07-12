@@ -1755,8 +1755,19 @@ doBid(const std::vector<std::string> & message)
 
     int numValidBids = 0;
 
+#ifdef __clang__
+    #define returnInvalidBid(i, reason, ...) \
+    do {\
+      auto formatted = formatImpl(__VA_ARGS__);\
+      returnInvalidBid_fn(i, reason, formatted);\
+    } while (0)
+
+    auto returnInvalidBid_fn = [&] (int i, const char * reason,
+                                    const std::string &formatted)
+#else
     auto returnInvalidBid = [&] (int i, const char * reason,
                                  const char * message, ...)
+#endif
         {
             this->recordHit("bidErrors.%s");
             this->recordHit("accounts.%s.bidErrors.total",
@@ -1767,6 +1778,7 @@ doBid(const std::vector<std::string> & message)
 
             ++info.stats->invalid;
 
+#ifndef __clang__
             va_list ap;
             va_start(ap, message);
             string formatted;
@@ -1777,6 +1789,7 @@ doBid(const std::vector<std::string> & message)
                 throw;
             }
             va_end(ap);
+#endif
 
             cerr << "invalid bid for agent " << agent << ": "
                  << formatted << endl;
