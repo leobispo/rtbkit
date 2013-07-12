@@ -21,7 +21,11 @@
 #include "jml/utils/guard.h"
 #include <boost/make_shared.hpp>
 #include "rtbkit/plugins/bidding_agent/bidding_agent.h"
+#ifdef HAVE_NODEJS
+#include <uv.h>
+#else
 #include "node/uv.h"
+#endif
 #include "soa/types/js/id_js.h"
 #include "bid_request_js.h"
 #include "currency_js.h"
