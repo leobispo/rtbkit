@@ -278,7 +278,7 @@ struct RTBRouterStackJS
                                                "requestFormat");
                 request.reset(BidRequest::parse(requestFormat, requestStr));
             }
-            else if (request = getBidRequestSharedPointer(requestArg)) {
+            else if ((request = getBidRequestSharedPointer(requestArg))) {
                 requestStr = request->toJsonStr();
                 requestFormat = "datacratic";
             }

@@ -1141,7 +1141,7 @@ struct CanonicalParser {
         //cerr << "parsing " << str << endl;
         StreamingJsonParsingContext context;
         context.init("bid request", str.c_str(), str.size());
-        auto_ptr<BidRequest> result(new BidRequest());
+        unique_ptr<BidRequest> result(new BidRequest());
         BidRequestDesc.parseJsonTyped(result.get(), context);
 
         //cerr << "result->url = " << result->url << endl;

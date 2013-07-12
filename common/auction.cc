@@ -289,7 +289,7 @@ setResponse(int spotNum, Response newResponse)
 
     WinLoss result;
 
-    auto_ptr<Data> newData(new Data());
+    unique_ptr<Data> newData(new Data());
 
     for (;;) {
         if (current->tooLate)
@@ -374,7 +374,7 @@ finish()
         if (current->tooLate)
             return false;
 
-        auto_ptr<Data> newData(new Data(*current));
+        unique_ptr<Data> newData(new Data(*current));
 
         for (unsigned spotNum = 0;  spotNum < numSpots(); ++spotNum) {
             if (newData->hasValidResponse(spotNum))
@@ -407,7 +407,7 @@ setError(const std::string & error, const std::string & details)
         if (current->tooLate)
             return false;
 
-        auto_ptr<Data> newData(new Data(*current));
+        unique_ptr<Data> newData(new Data(*current));
         
         newData->error = error;
         newData->details = details;
