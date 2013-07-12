@@ -21,8 +21,8 @@ DefaultDescription()
         {
             //cerr << "got unknown field " << context.printPath() << endl;
 
-            std::function<Json::Value & (int, Json::Value &)> getEntry
-            = [&] (int n, Json::Value & curr) -> Json::Value &
+            std::function<Json::Value & (int, Json::Value &)> getEntry;
+            getEntry = [&] (int n, Json::Value & curr) -> Json::Value &
             {
                 if (n == context.path.size())
                     return curr;

@@ -1142,8 +1142,8 @@ public:
         Accounts result;
         Guard guard(lock);
 
-        std::function<void (const AccountKey &, int, int)> doAccount
-            = [&] (const AccountKey & key, int depth, int maxDepth)
+        std::function<void (const AccountKey &, int, int)> doAccount;
+        doAccount = [&] (const AccountKey & key, int depth, int maxDepth)
             {
                 auto it = accounts.find(key);
                 if (it == accounts.end())
