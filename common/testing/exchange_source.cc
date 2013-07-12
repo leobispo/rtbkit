@@ -11,6 +11,7 @@
 #include "soa/service/http_header.h"
 
 #include <array>
+#include <unistd.h>
 
 using namespace std;
 using namespace RTBKIT;
@@ -42,7 +43,7 @@ ExchangeSource::
 ~ExchangeSource()
 {
     if (addr) freeaddrinfo(addr);
-    if (fd >= 0) close(fd);
+    if (fd >= 0) ::close(fd);
 }
 
 
@@ -50,7 +51,7 @@ void
 ExchangeSource::
 connect()
 {
-    if(fd >= 0) close(fd);
+    if(fd >= 0) ::close(fd);
     fd = socket(AF_INET, SOCK_STREAM, 0);
     ExcCheckErrno(fd != -1, "socket failed");
 
@@ -291,6 +292,9 @@ sendEvent(const PostAuctionEvent& event)
 
         current += res;
     }
+
+    ::close(fd);
+    fd = -1;
 
     std::cerr << "win sent payload=" << str << std::endl;
 
