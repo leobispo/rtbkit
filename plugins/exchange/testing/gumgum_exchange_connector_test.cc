@@ -27,8 +27,11 @@
 
 using namespace RTBKIT;
 
+#ifndef BASE_DIR
+#define BASE_DIR "./rtbkit"
+#endif
 
-const std::string bid_sample_filename("rtbkit/plugins/exchange/testing/gumgum_bid_request.json");
+const std::string bid_sample_filename(BASE_DIR "/plugins/exchange/testing/gumgum_bid_request.json");
 
 
 std::string loadFile(const std::string & filename)

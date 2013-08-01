@@ -8,6 +8,7 @@ SUBDIRS = \
   googleurl \
   tinyxml2 \
   leveldb \
+  jml/compiler \
   jml/math \
   jml/arch \
   jml/utils \

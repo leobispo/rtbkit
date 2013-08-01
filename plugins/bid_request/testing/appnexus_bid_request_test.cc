@@ -6,6 +6,10 @@
  Test cases for the AppNexus bid request parser.
  */
 
+#ifndef BASE_DIR
+#define BASE_DIR "./rtbkit"
+#endif
+
 #define PARSE_TEST_BOILERPLATE(___bidRequestObjType) \
     printTestHeader(filename, testname); \
     StreamingJsonParsingContext context; \
@@ -106,39 +110,39 @@ void parseChildMember(const std::string & filename, const std::string & testname
 
 BOOST_AUTO_TEST_CASE( test_parse_appnexus_parent_bid_request )
 {
-    parseParentBidRequest("rtbkit/plugins/bid_request/testing/appnexus_parent_bid_request.json", "test_parse_appnexus_parent_bid_request");
+    parseParentBidRequest(BASE_DIR "/plugins/bid_request/testing/appnexus_parent_bid_request.json", "test_parse_appnexus_parent_bid_request");
 }
 
 BOOST_AUTO_TEST_CASE( test_parse_appnexus_child_bid_info )
 {
-    parseChildBidInfo("rtbkit/plugins/bid_request/testing/appnexus_child_bid_info.json", "test_parse_appnexus_child_bid_info");
+    parseChildBidInfo(BASE_DIR "/plugins/bid_request/testing/appnexus_child_bid_info.json", "test_parse_appnexus_child_bid_info");
 }
 
 BOOST_AUTO_TEST_CASE( test_parse_appnexus_child_segment )
 {
-    parseChildSegment("rtbkit/plugins/bid_request/testing/appnexus_child_segment.json", "test_parse_appnexus_child_segment");
+    parseChildSegment(BASE_DIR "/plugins/bid_request/testing/appnexus_child_segment.json", "test_parse_appnexus_child_segment");
 }
 
 BOOST_AUTO_TEST_CASE( test_parse_appnexus_child_inventory_audit )
 {
-    parseChildInventoryAudit("rtbkit/plugins/bid_request/testing/appnexus_child_inventory_audit.json", "test_parse_appnexus_child_inventory_audit");
+    parseChildInventoryAudit(BASE_DIR "/plugins/bid_request/testing/appnexus_child_inventory_audit.json", "test_parse_appnexus_child_inventory_audit");
 }
 
 BOOST_AUTO_TEST_CASE( test_parse_appnexus_child_tag )
 {
-    parseChildTag("rtbkit/plugins/bid_request/testing/appnexus_child_tag.json", "test_parse_appnexus_tag");
+    parseChildTag(BASE_DIR "/plugins/bid_request/testing/appnexus_child_tag.json", "test_parse_appnexus_tag");
 }
 
 BOOST_AUTO_TEST_CASE( test_parse_appnexus_child_member )
 {
-    parseChildMember("rtbkit/plugins/bid_request/testing/appnexus_child_member.json", "test_parse_appnexus_member");
+    parseChildMember(BASE_DIR "/plugins/bid_request/testing/appnexus_child_member.json", "test_parse_appnexus_member");
 }
 
 BOOST_AUTO_TEST_CASE( test_openrtb_from_appnexus )
 {
     printTestHeader("test_openrtb_from_appnexus");
 
-    BID_REQUEST_CONVERSION_TEST_BOILERPLATE("rtbkit/plugins/bid_request/testing/appnexus_parent_bid_request.json", AppNexus::BidRequest)
+    BID_REQUEST_CONVERSION_TEST_BOILERPLATE(BASE_DIR "/plugins/bid_request/testing/appnexus_parent_bid_request.json", AppNexus::BidRequest)
 
     std::string provider = "DummyProvider";
     std::string exchange = "AppNexus";

@@ -71,6 +71,7 @@ AC_CONFIG_FILES([
   googleurl/Makefile
   tinyxml2/Makefile
   leveldb/Makefile
+  jml/compiler/Makefile
   jml/math/Makefile
   jml/arch/Makefile
   jml/utils/Makefile

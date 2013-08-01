@@ -8,11 +8,14 @@ exchange_include_HEADERS = \
   http_auction_handler.h \
   http_exchange_connector.h \
   openrtb_exchange_connector.h \
-  rubicon_exchange_connector.h
+  rubicon_exchange_connector.h \
+  gumgum_exchange_connector.h \
+  appnexus_exchange_connector.h
 
 exchange_includedir = $(includedir)/rtbkit/plugins/exchange
 
-lib_LTLIBRARIES = libexchange.la librubicon_exchange.la libopenrtb_exchange.la
+lib_LTLIBRARIES = libexchange.la librubicon_exchange.la libopenrtb_exchange.la libappnexus_exchange.la \
+  libgumgum_exchange.la
 
 libexchange_la_LDFLAGS = -avoid-version
 libexchange_la_LIBADD = \
@@ -40,6 +43,23 @@ libopenrtb_exchange_la_LIBADD = \
 
 libopenrtb_exchange_la_SOURCES = openrtb_exchange_connector.cc
 
+libappnexus_exchange_la_LDFLAGS = -avoid-version
+libappnexus_exchange_la_LIBADD = \
+  $(abs_top_builddir)/common/librtb.la \
+  $(abs_top_builddir)/openrtb/libopenrtb.la \
+  libexchange.la
+
+libappnexus_exchange_la_SOURCES = appnexus_exchange_connector.cc
+
+libgumgum_exchange_la_LDFLAGS = -avoid-version
+libgumgum_exchange_la_LIBADD = \
+  $(abs_top_builddir)/common/librtb.la \
+  $(abs_top_builddir)/openrtb/libopenrtb.la \
+  libexchange.la
+
+libgumgum_exchange_la_SOURCES = gumgum_exchange_connector.cc
+
+
 TESTS_ENVIRONMENT = $(abs_top_builddir)/test_driver.sh
 
 TEST_LIB = \
@@ -66,11 +86,11 @@ TEST_LIB = \
   $(abs_top_builddir)/core/agent_configuration/libagent_configuration.la \
   libexchange.la \
   libopenrtb_exchange.la \
-  librubicon_exchange.la \
   $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la
 
 CC_TESTS = \
-  rubicon_exchange_connector_test
+  rubicon_exchange_connector_test \
+  gumgum_exchange_connector_test
 
 TESTS = $(CC_TESTS)
 
@@ -80,4 +100,13 @@ rubicon_exchange_connector_test_SOURCES = testing/rubicon_exchange_connector_tes
 rubicon_exchange_connector_test_CXXFLAGS = $(CAIROMM_CFLAGS)
 rubicon_exchange_connector_test_LDADD = \
   $(TEST_LIB) \
+  librubicon_exchange.la \
+  $(CAIROMM_LIBS)
+
+gumgum_exchange_connector_test_SOURCES = testing/gumgum_exchange_connector_test.cc
+gumgum_exchange_connector_test_CXXFLAGS = $(CAIROMM_CFLAGS)
+gumgum_exchange_connector_test_LDADD = \
+  $(TEST_LIB) \
+  libgumgum_exchange.la \
+  $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la \
   $(CAIROMM_LIBS)

@@ -86,6 +86,8 @@ router_ex_LDADD = \
   $(abs_top_builddir)/plugins/exchange/libexchange.la \
   $(abs_top_builddir)/plugins/exchange/libopenrtb_exchange.la \
   $(abs_top_builddir)/plugins/exchange/librubicon_exchange.la \
+  $(abs_top_builddir)/plugins/exchange/libappnexus_exchange.la \
+  $(abs_top_builddir)/plugins/bid_request/libappnexus_bid_request.la \
   $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la \
   $(abs_top_builddir)/common/libbid_test_utils.la \
   $(abs_top_builddir)/common/libbid_request.la
@@ -102,6 +104,8 @@ bid_request_endpoint_LDADD = \
   $(abs_top_builddir)/plugins/bidding_agent/libbidding_agent.la \
   $(abs_top_builddir)/plugins/exchange/libopenrtb_exchange.la \
   $(abs_top_builddir)/plugins/exchange/librubicon_exchange.la \
+  $(abs_top_builddir)/plugins/exchange/libappnexus_exchange.la \
+  $(abs_top_builddir)/plugins/bid_request/libappnexus_bid_request.la \
   $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la \
   $(abs_top_builddir)/core/router/librtb_router.la \
   $(abs_top_builddir)/core/banker/libbanker.la \
@@ -134,6 +138,8 @@ integration_endpoints_LDADD = \
   $(abs_top_builddir)/core/banker/libbanker.la \
   $(abs_top_builddir)/plugins/exchange/libopenrtb_exchange.la \
   $(abs_top_builddir)/plugins/exchange/librubicon_exchange.la \
+  $(abs_top_builddir)/plugins/exchange/libappnexus_exchange.la \
+  $(abs_top_builddir)/plugins/bid_request/libappnexus_bid_request.la \
   $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la \
   $(abs_top_builddir)/common/libbid_test_utils.la \
   $(abs_top_builddir)/plugins/exchange/libexchange.la
