@@ -36,6 +36,7 @@ bin_PROGRAMS = agent_configuration_service_runner
 agent_configuration_service_runner_SOURCES = agent_configuration_service_runner.cc
 agent_configuration_service_runner_LDADD = \
   $(ZMQ_LIB) \
+  $(BOOST_REGEX_LIB) \
   $(BOOST_SYSTEM_LIB) \
   $(BOOST_PROGRAM_OPTIONS_LIB) \
   $(abs_top_builddir)/core/monitor/libmonitor.la \
