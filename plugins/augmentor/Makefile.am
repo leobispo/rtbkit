@@ -29,7 +29,8 @@ TEST_LIB = \
   $(abs_top_builddir)/soa/types/libtypes.la \
   $(abs_top_builddir)/soa/types/libvalue_description.la \
   $(abs_top_builddir)/jml/db/libdb.la \
-  $(abs_top_builddir)/common/.libs/libbid_request.la \
+  $(abs_top_builddir)/common/librtb.la \
+  $(abs_top_builddir)/common/libbid_request.la \
   libaugmentor_base.la
 
 TESTS_ENVIRONMENT = $(abs_top_builddir)/test_driver.sh

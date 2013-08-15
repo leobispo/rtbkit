@@ -43,6 +43,9 @@ agent_configuration_service_runner_LDADD = \
   $(abs_top_builddir)/jml/arch/libarch.la \
   $(abs_top_builddir)/jml/utils/libutils.la \
   $(abs_top_builddir)/soa/types/libtypes.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/soa/jsoncpp/libjsoncpp.la \
   $(abs_top_builddir)/soa/service/libservices.la \
+  $(abs_top_builddir)/common/librtb.la \
+  $(abs_top_builddir)/common/libbid_request.la \
   libagent_configuration.la

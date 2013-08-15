@@ -28,6 +28,7 @@ post_auction_runner_LDADD = \
   $(BOOST_THREAD_LIB) \
   $(BOOST_SYSTEM_LIB) \
   $(BOOST_PROGRAM_OPTIONS_LIB) \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/jml/arch/libarch.la \
   $(abs_top_builddir)/jml/utils/libutils.la \
   $(abs_top_builddir)/soa/types/libtypes.la \
@@ -37,6 +38,5 @@ post_auction_runner_LDADD = \
   $(abs_top_builddir)/core/monitor/libmonitor.la \
   $(abs_top_builddir)/common/libbid_request.la \
   $(abs_top_builddir)/common/librtb.la \
-  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/core/banker/libbanker.la \
   libpost_auction.la

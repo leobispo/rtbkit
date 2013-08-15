@@ -4,7 +4,6 @@ AM_CPPFLAGS = \
   -I $(abs_top_builddir) -I $(abs_top_builddir)/../ -I $(abs_top_builddir)/leveldb/include $(BOOST_CPPFLAGS)
 
 exchange_include_HEADERS = \
-  exchanges.h \
   http_auction_handler.h \
   http_exchange_connector.h \
   openrtb_exchange_connector.h \
@@ -84,6 +83,7 @@ TEST_LIB = \
   $(abs_top_builddir)/core/banker/libbanker.la \
   $(abs_top_builddir)/plugins/bidding_agent/libbidding_agent.la \
   $(abs_top_builddir)/core/agent_configuration/libagent_configuration.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   libexchange.la \
   libopenrtb_exchange.la \
   $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la

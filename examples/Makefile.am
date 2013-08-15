@@ -20,7 +20,6 @@ noinst_PROGRAMS = \
   bidding_agent_console \
   bidding_agent_ex \
   ad_server_connector_ex \
-  router_ex \
   bid_request_endpoint \
   adserver_endpoint \
   integration_endpoints \
@@ -44,7 +43,9 @@ augmentor_ex_runner_SOURCES = augmentor_ex_runner.cc
 augmentor_ex_runner_LDADD = $(PROGRAMS_LIB) libaugmentor_ex.la 
 
 data_logger_ex_SOURCES = data_logger_ex.cc
-data_logger_ex_LDADD = $(PROGRAMS_LIB)
+data_logger_ex_LDADD = \
+  $(PROGRAMS_LIB)  \
+  $(abs_top_builddir)/soa/gc/libgc.la
 
 bidding_agent_console_SOURCES = bidding_agent_console.cc
 bidding_agent_console_LDADD = \
@@ -53,6 +54,7 @@ bidding_agent_console_LDADD = \
   $(abs_top_builddir)/soa/types/libvalue_description.la \
   $(abs_top_builddir)/common/libbid_request.la \
   $(abs_top_builddir)/common/librtb.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/plugins/bidding_agent/libbidding_agent.la
 
 bidding_agent_ex_SOURCES = bidding_agent_ex.cc
@@ -64,6 +66,7 @@ bidding_agent_ex_LDADD = \
   $(abs_top_builddir)/common/librtb.la \
   $(abs_top_builddir)/common/libbid_request.la \
   $(abs_top_builddir)/soa/types/libvalue_description.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/plugins/bidding_agent/libbidding_agent.la
 
 ad_server_connector_ex_SOURCES = ad_server_connector_ex.cc
@@ -74,23 +77,6 @@ ad_server_connector_ex_LDADD = \
   $(abs_top_builddir)/common/libbid_request.la \
   $(abs_top_builddir)/soa/types/libvalue_description.la \
   $(abs_top_builddir)/plugins/adserver/libadserver_connector.la
-
-router_ex_SOURCES = router_ex.cc
-router_ex_LDADD = \
-  $(PROGRAMS_LIB) \
-  $(abs_top_builddir)/common/librtb.la \
-  $(abs_top_builddir)/soa/types/libvalue_description.la \
-  $(abs_top_builddir)/core/router/librtb_router.la \
-  $(abs_top_builddir)/core/router/librouter_runner.la \
-  $(abs_top_builddir)/openrtb/libopenrtb.la \
-  $(abs_top_builddir)/plugins/exchange/libexchange.la \
-  $(abs_top_builddir)/plugins/exchange/libopenrtb_exchange.la \
-  $(abs_top_builddir)/plugins/exchange/librubicon_exchange.la \
-  $(abs_top_builddir)/plugins/exchange/libappnexus_exchange.la \
-  $(abs_top_builddir)/plugins/bid_request/libappnexus_bid_request.la \
-  $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la \
-  $(abs_top_builddir)/common/libbid_test_utils.la \
-  $(abs_top_builddir)/common/libbid_request.la
 
 bid_request_endpoint_SOURCES = bid_request_endpoint.cc
 bid_request_endpoint_LDADD = \
@@ -110,6 +96,7 @@ bid_request_endpoint_LDADD = \
   $(abs_top_builddir)/core/router/librtb_router.la \
   $(abs_top_builddir)/core/banker/libbanker.la \
   $(abs_top_builddir)/common/libbid_test_utils.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/plugins/exchange/libexchange.la
 
 adserver_endpoint_SOURCES = adserver_endpoint.cc
@@ -120,6 +107,7 @@ adserver_endpoint_LDADD = \
   $(abs_top_builddir)/common/libbid_request.la \
   $(abs_top_builddir)/soa/types/libvalue_description.la \
   $(abs_top_builddir)/plugins/adserver/libstandard_adserver_connector.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/plugins/adserver/libadserver_connector.la
 
 integration_endpoints_SOURCES = integration_endpoints.cc
@@ -142,6 +130,7 @@ integration_endpoints_LDADD = \
   $(abs_top_builddir)/plugins/bid_request/libappnexus_bid_request.la \
   $(abs_top_builddir)/plugins/bid_request/libopenrtb_bid_request.la \
   $(abs_top_builddir)/common/libbid_test_utils.la \
+  $(abs_top_builddir)/soa/gc/libgc.la \
   $(abs_top_builddir)/plugins/exchange/libexchange.la
 
 standalone_bidder_ex_SOURCES = standalone_bidder_ex.cc
